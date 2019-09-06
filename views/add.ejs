@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>add html</title>
+    </head>
+    <body>
+        <h1><a href='./topic'>Server program</a></h1>
+        <ol>
+            <% for(var i=0;i <topics.length; i++) { %>
+            <li>
+                <a href="/topic/<%=topics[i].id %>/edit">
+                    <%=topics[i].title %>
+                </a>
+            </li>
+            <% } %>
+        </ol>
+        <article>
+            <form action='/topic/add' method='POST'>
+                <p><input type="text" name="title" placeholder="title", id="titleTextInput"></p>
+                <p><textarea name="description" placeholder="description"></textarea></p>
+                <p><input type="text" name="author" placeholder="author", id="authorTextInput"></p>
+                <p><input type="submit", value="저장"></p>
+            
+            </form>
+
+            <h1>데이터베이스</h1>
+            <form>
+                <% for(var i=0;i<topics.length; i++) { %>
+                <hr>
+                <span><strong><bold><%= topics[i].title %></bold></strong></span><br>
+                <span><%= topics[i].description %></span><br>
+                <span><%= topics[i].author %></span><br>
+                <% } %>
+            </form>
+        </article>
+        
+    </body>
+</html>
